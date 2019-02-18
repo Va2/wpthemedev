@@ -65,3 +65,18 @@ function ajout_menu_a_class($atts, $item, $args)
 // Ajout d'un écouteur d'événement de type filtre qui nous permet de changer les attributs des balises <a>
 // les add_action et add_filter peuvent avoit jusqu'à 4 paramêtre. Le 3ème pour l'ordre d'execution et le 4 ème pour le nombre de parammètre qui seront passer à la fonction callback
 add_filter('nav_menu_link_attributes', 'ajout_menu_a_class', 10, 3);
+
+/**
+ * Ajout la fonctionnalité d'un ajout d'image pour les posts pour ce thème ci
+ *
+ * @return void
+ */
+function ajout_image_article()
+{
+  //Ajout de la fonctionnalité d'ajout d'image pour les posts pour ce thème ci
+  add_theme_support('post-thumbnails');
+  $test = 0;
+}
+
+// Ajout d'un écouteur d'événement pour activer les images mise en avant pour les post (article)
+add_action('init', 'ajout_image_article');
