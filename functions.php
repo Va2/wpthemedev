@@ -16,11 +16,19 @@ function ajout_css_js()
   wp_enqueue_style('magnific-popup', get_template_directory_uri() . '/vendor/magnific-popup/magnific-popup.css');
   wp_enqueue_style('freelancer', get_template_directory_uri() . '/css/freelancer.min.css');
 
+  // Ajout des scripts js
+  // https://developer.wordpress.org/reference/functions/wp_enqueue_script/
+  wp_enqueue_script('jquery-perso', get_template_directory_uri() . '/vendor/jquery/jquery.min.js', null, true);
+  wp_enqueue_script('bootstrap', get_template_directory_uri() . '/vendor/bootstrap/js/bootstrap.bundle.min.js', ['jquery-perso'], null, true);
+  wp_enqueue_script('jquery-easing', get_template_directory_uri() . '/vendor/jquery-easing/jquery.easing.min.js', ['jquery-perso'], null, true);
+  wp_enqueue_script('magnific-popup', get_template_directory_uri() . '/vendor/magnific-popup/jquery.magnific-popup.min.js', ['jquery-perso'], null, true);
+  wp_enqueue_script('boostrap-validation', get_template_directory_uri() . '/js/jqBootstrapValidation.js', ['bootstrap'], null, true);
+  wp_enqueue_script('contact-me', get_template_directory_uri() . '/js/contact_me.js', ['jquery-perso'], null, true);
+  wp_enqueue_script('freelancer', get_template_directory_uri() . '/js/freelancer.min.js', ['jquery-perso'], null, true);
+
 }
 
 // Nous ajoutons un écouteur d'événements pour nous prévenir lorsque l'on peut ajouter des css et scripts.
 // Cette écouteur va déclancher la fonction ajout_css_js()
 // https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
 add_action('wp_enqueue_scripts', 'ajout_css_js');
-
-?>

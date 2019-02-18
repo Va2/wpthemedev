@@ -62,21 +62,11 @@
 
   <?php get_template_part('templates/portfolio', 'modal'); ?>
 
-    <!-- Bootstrap core JavaScript -->
-  <script src="<?php echo get_template_directory_uri(); ?>/vendor/jquery/jquery.min.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="<?php echo get_template_directory_uri(); ?>/vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-  <!-- Contact Form JavaScript -->
-  <script src="<?php echo get_template_directory_uri(); ?>/js/jqBootstrapValidation.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="<?php echo get_template_directory_uri(); ?>/js/freelancer.min.js"></script>
-
-</body>
+  <?php
+  // Ajout de la fonction wp_footer() qui va placer les scripts js qui doivent se trouver avant la fermeture de la balise body
+  // https://developer.wordpress.org/reference/functions/wp_footer/
+  wp_footer();
+  ?>
+ </body>
 
 </html>
