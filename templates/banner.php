@@ -5,6 +5,6 @@
       <!-- https://developer.wordpress.org/reference/functions/get_bloginfo/ -->
       <h1 class="text-uppercase mb-0"><?php echo get_bloginfo('name'); ?></h1>
       <hr class="star-light">
-      <h2 class="font-weight-light mb-0">Web Developer - Graphic Artist - User Experience Designer</h2>
+      <h2 class="font-weight-light mb-0"><?php echo get_bloginfo('description'); ?></h2>
     </div>
   </header>
