@@ -9,24 +9,7 @@ define('INCLUDE_DIR', get_template_directory() . "/includes");
 require_once(INCLUDE_DIR . '/enqueue-script.php');
 
 require_once(INCLUDE_DIR . '/menu.php');
-/**
- * Fonction qui ajoute des attributes au balise a des nav_menu
- *
- * @param [type] $att
- * @param [type] $item
- * @param [type] $args
- * @return void
- */
-function ajout_menu_a_class($atts, $item, $args)
-{
-  $class = 'nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger'; // or something based on $item
-  $atts['class'] = $class;
-  return $atts;
-}
 
-// Ajout d'un écouteur d'événement de type filtre qui nous permet de changer les attributs des balises <a>
-// les add_action et add_filter peuvent avoit jusqu'à 4 paramêtre. Le 3ème pour l'ordre d'execution et le 4 ème pour le nombre de parammètre qui seront passer à la fonction callback
-add_filter('nav_menu_link_attributes', 'ajout_menu_a_class', 10, 3);
 
 /**
  * Ajout la fonctionnalité d'un ajout d'image pour les posts pour ce thème ci
