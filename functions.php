@@ -10,22 +10,7 @@ require_once(INCLUDE_DIR . '/enqueue-script.php');
 
 require_once(INCLUDE_DIR . '/menu.php');
 
-
-/**
- * Ajout la fonctionnalité d'un ajout d'image pour les posts pour ce thème ci
- *
- * @return void
- */
-function ajout_image_article()
-{
-  //Ajout de la fonctionnalité d'ajout d'image pour les posts pour ce thème ci
-  add_theme_support('post-thumbnails');
-  $test = 0;
-}
-
-// Ajout d'un écouteur d'événement pour activer les images mise en avant pour les post (article)
-add_action('init', 'ajout_image_article');
-
+require_once(INCLUDE_DIR . '/theme-setup.php');
 
 /**
  * Fonction qui ajoute la possibilité de customiser la partie personnalisation du thème
