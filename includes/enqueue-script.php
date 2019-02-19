@@ -5,10 +5,11 @@ class EnqueueScript
   /**
    * Fonction qui va ajouter des scripts dynamiquement afin que l'on puisse les inclures dans le thème avec wp_head() et wp_footer()
    * Nous avons ajouter le mot public afin que cette méthode puisse être utiliser depuis l'exterieur. Cela veut dire que l'on peut créer une instance de cette class et puis faire appel à la méthode ( ex: $instance->methode() )
+   * Le mot static permet de pouvoir utiliser la méthode directelement depuis la class sans devoir l'instancier
    *
    * @return void
    */
-  public function ajout_css_js()
+  public static function ajout_css_js()
   {
   // Ajout des scripts css
   // https://developer.wordpress.org/reference/functions/wp_enqueue_style/
@@ -37,8 +38,10 @@ class EnqueueScript
 // https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
 
 // Nous créeons une instance de la class EnqueueScript afin de la passer en paramètre dans notre add_action
-$enqueue_script = new EnqueueScript();
+//$enqueue_script = new EnqueueScript();
 
 // la function add_action prend en deuxième paramêtre soit un string (qui correspond au nom d'une fonction), soit un tableau. Dans le tableau on passe en premier paramêtre l'un objet instance d'une class et en deuxième paramêtre un string qui correspond au nom de la méthode de l'objet passé en premier paramêtre.
-add_action('wp_enqueue_scripts', [$enqueue_script, 'ajout_css_js']);
+
+// Il est possible de ne pas devoir instancier la class avec la syntaxe ci-dessous. Attention il faut alors que la méthode soit static
+add_action('wp_enqueue_scripts', [EnqueueScript::class, 'ajout_css_js']);
 
