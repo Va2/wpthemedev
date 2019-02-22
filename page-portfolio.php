@@ -21,6 +21,7 @@ get_header();
         <?php the_content(); ?>
         <?php endwhile; ?>
     </div>
+    <?php get_template_part('templates/partials/grid-portfolio'); ?>
 </div>
 <?php
 
