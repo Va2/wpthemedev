@@ -6,11 +6,11 @@ class MgWidgetRegister
   {
     register_sidebar(array(
       'name'          => __('Footer 1ere colonne'),
-      'id'            => 'sidebar-1',
-      'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</aside>',
-      'before_title'  => '<h1 class="widget-title">',
-      'after_title'   => '</h1>',
+      'id'            => 'footer-left',
+      'before_widget' => '<div>',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h4 class="text-uppercase mb-4">',
+      'after_title'   => '</h4>',
     ));
   }
 }
