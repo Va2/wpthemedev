@@ -7,33 +7,16 @@
             </div>
             <div class="col-md-4 mb-5 mb-lg-0">
                 <h4 class="text-uppercase mb-4">Around the Web</h4>
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                            <i class="fab fa-fw fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                            <i class="fab fa-fw fa-google-plus-g"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                            <i class="fab fa-fw fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                            <i class="fab fa-fw fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                            <i class="fab fa-fw fa-dribbble"></i>
-                        </a>
-                    </li>
-                </ul>
+                <?php 
+                // on remplace le menu en dur par un menu dynamique
+                wp_nav_menu([ // n'oubliez pas d'aller sur la documentation de cette fonction pour voir quels sont tous les paramêtres que l'on peut mettre et ce à quoi ils servent
+                    'menu_class' => 'list-inline mb-0',
+                    'theme_location' => 'social-network-footer',
+                    'container' => '',
+                    'fallback_cb' => false,
+                ]);;
+                ?>
+
             </div>
             <div class="col-md-4">
                 <?php dynamic_sidebar('footer-right'); ?>
