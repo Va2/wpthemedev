@@ -19,7 +19,7 @@ get_header();
     </h2>
 
     <?php 
-    $terms = get_terms(['category']);
+    $terms = wp_get_post_terms($post->ID, ['category']);
     foreach ($terms as $term): ?>
     <a class="badge badge-secondary" href="<?php echo get_term_link($term); ?>">
         <?php echo $term->name; ?>
