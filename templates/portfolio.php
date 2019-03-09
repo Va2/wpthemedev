@@ -1,8 +1,9 @@
 <?php
 $args = [
-  'post_type' => 'post',
-  'posts_per_page' => 6,
-  'category_name' => 'portfolio'
+    'post_type' => 'post',
+    // nous récupérons maintenant la valeur de l'option qui va elle déterminé le nombre à affiché
+    'posts_per_page' => (get_option('nombre_portfolio_home')) ? get_option('nombre_portfolio_home') : 6,
+    'category_name' => 'portfolio'
 ];
 $query = new WP_Query($args);
 ?>
@@ -12,7 +13,7 @@ $query = new WP_Query($args);
         <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
         <hr class="star-dark mb-5">
         <div class="row">
-            <?php while ($query->have_posts()): $query->the_post(); ?>
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
             <div class="col-md-6 col-lg-4">
                 <a class="portfolio-item d-block mx-auto" href="<?php the_permalink(); ?>">
                     <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
@@ -24,10 +25,10 @@ $query = new WP_Query($args);
                 </a>
             </div>
             <?php 
-          endwhile;
-          // Cette fonction réactualise les $post data en fonction du context du wp hierarchie
-          wp_reset_postdata();
-          ?>
+        endwhile;
+        // Cette fonction réactualise les $post data en fonction du context du wp hierarchie
+        wp_reset_postdata();
+        ?>
         </div>
     </div>
 </section> 
